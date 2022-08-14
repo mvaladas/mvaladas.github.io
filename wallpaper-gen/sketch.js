@@ -10,11 +10,11 @@ var scaleOutput = 1;
 function setup() {
   createCanvas(270, 480);
   colorMode(HSB, 255);
-  mainColor = color(random(255), random(200), random(100, 200));
   skySize = height / 6;
   landSize = height - skySize;
   output = createGraphics(270,480);
   output.colorMode(HSB, 255);
+  mainColor = output.color(random(255), random(200), random(100, 200));
 
   // button = createButton('Refresh');
   // button.mousePressed(Refresh);
@@ -24,8 +24,8 @@ function setup() {
 
 function draw() {
    // Clear Canvas
-   background(255);
-   output.clear();
+  background(255);
+  output.clear();
   output.push();
   output.scale(scaleOutput);
   output.background(mainColor);
@@ -54,18 +54,20 @@ function draw() {
   }
   output.pop();
   image(output, 0, 0);
-  noLoop();
+  // noLoop();
 }
 
 function DL() {
   // HighRes Export
   scaleOutput = 8;
   output = createGraphics(scaleOutput * 270, scaleOutput * 480);
+  output.colorMode(HSB, 255);
   draw();
   save(output, "filename", 'png');
 
   // Reset Default
   scaleOutput = 1;
   output = createGraphics(270,480);
+  output.colorMode(HSB, 255);
   draw();
 }
