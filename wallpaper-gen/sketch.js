@@ -63,7 +63,7 @@ function DL() {
   output = createGraphics(scaleOutput * 270, scaleOutput * 480);
   output.colorMode(HSB, 255);
   draw();
-  save(output, "filename", 'png');
+  save(output, "Wallpaper.png");
 
   // Reset Default
   scaleOutput = 1;
